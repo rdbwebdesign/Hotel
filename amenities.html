@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amenities & Experiences | The Luminary Hotel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Small styling touch to distinguish the section transitions smoothly */
+        .section-divider {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin: 6rem 0 2.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(40, 54, 24, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">The Hotel</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Suites</a></li>
+                <li><a href="amenities.html">Amenities & Experiences</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Amenities & Experiences</h1>
+            <p>Explore Local Experiences</p>
+        </div>
+
+        <h2 class="section-divider" style="margin-top: 0;">On-Site Amenities</h2>
+        
+        <div class="card-grid">
+            <div class="dynamic-card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1554424518-336ec861b705?q=80&w=1334&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="The Bathhouse Spa">
+                <div class="card-body">
+                    <span class="card-tag">Holistic Wellness</span>
+                    <h2 class="card-title">The Bathhouse</h2>
+                    <p class="card-text">Enjoy our local bathhouse.</p>
+                    <div class="card-footer-action">
+                        <span style="font-size:0.9rem; color:var(--text-muted);">Complimentary for Suite Guests</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dynamic-card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Kitchen Lounge">
+                <div class="card-body">
+                    <span class="card-tag">Gastronomy</span>
+                    <h2 class="card-title">In House Kitchen</h2>
+                    <p class="card-text">Restaraunt Description.</p>
+                    <div class="card-footer-action">
+                        <span style="font-size:0.9rem; color:var(--text-muted);">Reservations Suggested</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dynamic-card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1509600110300-21b9d5fedeb7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="The Pool">
+                <div class="card-body">
+                    <span class="card-tag">Restoration</span>
+                    <h2 class="card-title">The Pool</h2>
+                    <p class="card-text">Pool Description</p>
+                    <div class="card-footer-action">
+                        <span style="font-size:0.9rem; color:var(--text-muted);">Open 6:00 AM – 10:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-divider">Excursions & Journeys</h2>
+
+        <div class="card-grid">
+            <div class="dynamic-card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="Stargazing Canyons">
+                <div class="card-body">
+                    <span class="card-tag">Astronomy</span>
+                    <h2 class="card-title">Canyon Stargazing</h2>
+                    <p class="card-text">Travel out into unmapped dark sky valley basins with our Resident Astronomer. Includes custom low-slung floor seating, fire circles, and luxury mezcal pairings under the stars.</p>
+                    <div class="card-footer-action">
+                        <div class="price-tag">$140 <span>/ guest</span></div>
+                        <a href="booking.html" class="btn btn-sm">Inquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dynamic-card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" alt="Clay Workshop">
+                <div class="card-body">
+                    <span class="card-tag">Artisan Craft</span>
+                    <h2 class="card-title">Terracotta Pottery Masterclass</h2>
+                    <p class="card-text">Learn throwing and hand-shaping raw clay with native studio artisans. Form your own vessels inside our open-air courtyard using regional techniques passed down for centuries.</p>
+                    <div class="card-footer-action">
+                        <div class="price-tag">$95 <span>/ guest</span></div>
+                        <a href="booking.html" class="btn btn-sm">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>© 2026 The Luminary Hotel. All Rights Reserved.</p></footer>
+</body>
+</html>

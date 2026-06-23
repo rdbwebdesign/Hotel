@@ -1,0 +1,550 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES (Reimagined Minimal Desert/Mediterranean)
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+:root { 
+    --primary: #bc6c25;       /* Warm Terracotta / Clay */
+    --secondary: #dda15e;     /* Desert Sand / Warm Ochre */
+    --bg-light: #fdfaf6;      /* Sun-bleached Plaster White */
+    --text-dark: #283618;     /* Deep Olive / Charcoal Ground */
+    --text-muted: #7f8c7d;    /* Soft Sage Grey */
+    --card-bg: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body { 
+    background-color: var(--bg-light); 
+    color: var(--text-dark); 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.7; 
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header { 
+    background-color: rgba(253, 250, 246, 0.95); 
+    backdrop-filter: blur(8px);
+    padding: 2rem; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    border-bottom: 1px solid rgba(188, 108, 37, 0.08);
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.logo { 
+    color: var(--primary); 
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; 
+    font-weight: 600; 
+    text-decoration: none; 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 2rem; 
+    flex-wrap: wrap;
+}
+
+.nav-links a { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    font-weight: 500; 
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, 
+.nav-links .active { 
+    color: var(--primary); 
+}
+
+/* ==========================================================================
+   3. HERO SECTION & BUTTONS
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(40, 54, 24, 0.25), rgba(40, 54, 24, 0.25)), url('https://images.unsplash.com/photo-1535827841776-24afc1e255ac?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 1rem;
+}
+
+.hero h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; 
+    font-weight: 400;
+    margin-bottom: 1rem; 
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.95;
+}
+
+.btn { 
+    background-color: var(--primary); 
+    color: white; 
+    padding: 1.1rem 3rem; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block; 
+    margin-top: 2.5rem; 
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover { 
+    background-color: var(--text-dark);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* ==========================================================================
+   4. LAYOUT CONTAINERS & GRID PANELS
+   ========================================================================== */
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 7rem 2rem; 
+}
+
+.page-header { 
+    text-align: center; 
+    max-width: 800px;
+    margin: 0 auto 5rem auto; 
+}
+
+.page-header h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; 
+    color: var(--text-dark); 
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.featured-img { 
+    width: 100%; 
+    height: 550px; 
+    object-fit: cover; 
+    margin-bottom: 5rem; 
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   5. ASYMMETRIC MASONRY / SHOWCASE GALLERY
+   ========================================================================== */
+.image-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 2rem; 
+    margin: 3rem 0; 
+}
+
+.grid-img { 
+    width: 100%; 
+    height: 400px; 
+    object-fit: cover; 
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.grid-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(40, 54, 24, 0.08);
+}
+
+/* Dynamic Multi-row Grid layout for dedicated Gallery Page */
+.masonry-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.masonry-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+.masonry-item:nth-child(even) img {
+    height: 320px;
+}
+
+.masonry-caption {
+    padding: 1rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+/* ==========================================================================
+   6. PREMIUM CARD SYSTEMS (Rooms, Amenities, Experiences)
+   ========================================================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3.5rem;
+}
+
+.dynamic-card {
+    background: var(--card-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(188, 108, 37, 0.03);
+    transition: var(--transition);
+}
+
+.dynamic-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(188, 108, 37, 0.07);
+}
+
+.card-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 3rem 2.5rem;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+}
+
+.card-text {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Pricing and action lines */
+.card-footer-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(188, 108, 37, 0.1);
+    padding-top: 1.5rem;
+}
+
+.price-tag {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.price-tag span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.btn-sm {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.75rem;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   7. BOOKING & INQUIRY FORM LAYOUT
+   ========================================================================== */
+.form-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .form-layout-grid { grid-template-columns: 1fr; }
+}
+
+.booking-form-box {
+    background: var(--card-bg);
+    padding: 4rem 3rem;
+    box-shadow: 0 20px 50px rgba(188, 108, 37, 0.05);
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.6rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(127, 140, 125, 0.25);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   8. REVIEWS TRACK & COMPANION ELEMENTS
+   ========================================================================== */
+.reviews-section { margin: 4rem 0; text-align: center; }
+.reviews-section h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--text-dark); margin-bottom: 3rem; font-weight: 400; }
+.reviews-container { overflow: hidden; width: 100%; position: relative; }
+.reviews-track { display: flex; width: max-content; gap: 3rem; animation: scroll 45s linear infinite; }
+.reviews-track:hover { animation-play-state: paused; }
+
+.review-card {
+    background: var(--card-bg);
+    padding: 3.5rem;
+    width: 400px;
+    text-align: left;
+    box-shadow: 0 15px 35px rgba(188, 108, 37, 0.03);
+    border-radius: 4px;
+}
+.review-stars { color: var(--secondary); margin-bottom: 1rem; letter-spacing: 2px; }
+.review-author { font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; color: var(--primary); }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1.5rem)); }
+}
+
+.split-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
+.detail-box { background: var(--card-bg); padding: 3rem; border-radius: 4px; box-shadow: 0 10px 30px rgba(40,54,24,0.02); margin-bottom: 2rem; }
+.detail-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark); font-weight: 400; }
+
+/* ==========================================================================
+   9. GLOBAL FOOTER & RESPONSIVENESS
+   ========================================================================== */
+footer { 
+    background-color: var(--text-dark); 
+    color: rgba(253, 250, 246, 0.65); 
+    text-align: center; 
+    padding: 5rem 2rem; 
+    margin-top: 8rem; 
+    font-size: 0.85rem; 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) { 
+    .hero h1 { font-size: 3.2rem; } 
+    .page-header h1 { font-size: 2.8rem; }
+    .featured-img { height: 350px; }
+    .container { padding: 5rem 1.5rem; }
+}
+/* ==========================================================================
+   ENHANCED CINEMATIC GALLERY STYLES & ANIMATIONS
+   ========================================================================== */
+
+/* Full-bleed Container adjustment for Gallery page */
+.gallery-wide-container {
+    max-width: 1600px; /* Expands layout to fill large desktop displays beautifully */
+    margin: 0 auto;
+    padding: 4rem 2rem 8rem 2rem;
+}
+
+/* Fluid responsive masonry layout grid */
+.masonry-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Container for individual image panels */
+.masonry-item {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(28, 43, 36, 0.03); /* Soft loading skeleton color */
+    margin-bottom: 0.5rem;
+    
+    /* Reveal Animation Sequence on page load */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: imageReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered entrance delay to make images cascade onto screen */
+.masonry-item:nth-child(1) { animation-delay: 0.1s; }
+.masonry-item:nth-child(2) { animation-delay: 0.2s; }
+.masonry-item:nth-child(3) { animation-delay: 0.3s; }
+.masonry-item:nth-child(4) { animation-delay: 0.4s; }
+.masonry-item:nth-child(5) { animation-delay: 0.15s; }
+.masonry-item:nth-child(6) { animation-delay: 0.25s; }
+.masonry-item:nth-child(7) { animation-delay: 0.35s; }
+.masonry-item:nth-child(8) { animation-delay: 0.45s; }
+.masonry-item:nth-child(9) { animation-delay: 0.5s; }
+
+/* Dynamic height configurations to create a natural modern masonry stagger */
+.masonry-item.tall img { height: 600px; }
+.masonry-item.medium img { height: 450px; }
+.masonry-item.square img { height: 380px; }
+
+.masonry-item img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Overlay that darkens subtly on hover */
+.masonry-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(28, 43, 36, 0.4) 100%);
+    opacity: 0.8;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Elegant Text Caption Overlay */
+.masonry-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    z-index: 3;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: #ffffff;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    
+    /* Transform pushes text slightly down until hovered */
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+/* HOVER MICRO-INTERACTIONS */
+.masonry-item:hover img {
+    transform: scale(1.04); /* Ultra smooth premium lens zoom */
+}
+
+.masonry-item:hover::after {
+    opacity: 1; /* Deepen bottom contrast shadow on focus */
+}
+
+.masonry-item:hover .masonry-caption {
+    transform: translateY(0);
+    opacity: 1; /* Text sweeps elegantly up into sight */
+}
+
+/* Animation Keyframe Frame definition */
+@keyframes imageReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjust layout on smaller tablet viewports */
+@media (max-width: 900px) {
+    .masonry-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 1.5rem;
+    }
+    .masonry-item.tall img,
+    .masonry-item.medium img,
+    .masonry-item.square img { 
+        height: 400px; /* Keeps visuals balanced uniformly on smaller screens */
+    }
+    .masonry-caption {
+        opacity: 1;
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(28, 43, 36, 0.7) 0%, transparent 100%);
+        padding: 1.5rem 1.2rem;
+        font-size: 1.15rem;
+    }
+}
