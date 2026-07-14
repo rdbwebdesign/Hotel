@@ -23,6 +23,11 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.7; 
     -webkit-font-smoothing: antialiased;
+
+    /* UNIVERSAL FOOTER FIX: Stretches the body to full viewport height */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ==========================================================================
@@ -160,6 +165,9 @@ nav {
     max-width: 1200px; 
     margin: 0 auto; 
     padding: 7rem 2rem; 
+    
+    /* UNIVERSAL FOOTER FIX: Forces container to fill vacant space */
+    flex: 1; 
 }
 
 .page-header { 
@@ -428,7 +436,11 @@ footer {
     .hero h1 { font-size: 3.2rem; } 
     .page-header h1 { font-size: 2.8rem; }
     .featured-img { height: 350px; }
-    .container { padding: 5rem 1.5rem; }
+    
+    /* Responsive adjustment for universal fix layout padding */
+    .container { 
+        padding: 5rem 1.5rem; 
+    }
 
     /* REQUIRED: Responsive Dropdown Navigation Rules */
     .menu-toggle {
@@ -467,8 +479,9 @@ footer {
         display: flex;
     }
 }
+
 /* ==========================================================================
-   ENHANCED CINEMATIC GALLERY STYLES & ANIMATIONS
+   10. ENHANCED CINEMATIC GALLERY STYLES & ANIMATIONS
    ========================================================================== */
 
 /* Full-bleed Container adjustment for Gallery page */
@@ -476,6 +489,9 @@ footer {
     max-width: 1600px; /* Expands layout to fill large desktop displays beautifully */
     margin: 0 auto;
     padding: 4rem 2rem 8rem 2rem;
+    
+    /* UNIVERSAL FOOTER FIX: Stretches the custom wide gallery container too */
+    flex: 1;
 }
 
 /* Fluid responsive masonry layout grid */
