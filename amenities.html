@@ -19,13 +19,68 @@
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(40, 54, 24, 0.1);
         }
+
+        /* --- Responsive Navigation Layout Styles --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; /* Crucial for positioning the mobile dropdown */
+            padding: 1rem 2rem;
+        }
+
+        .menu-toggle {
+            display: none; /* Hidden on desktop screens */
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        /* --- Mobile Breakpoint (768px and below) --- */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Show hamburger button on mobile */
+            }
+
+            .nav-links {
+                display: none; /* Hide navigation links by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Spans directly below the nav bar */
+                left: 0;
+                width: 100%;
+                background-color: #fff; /* Match your site's header background */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+                padding: 1rem 0;
+                z-index: 1000;
+            }
+
+            .nav-links li {
+                text-align: center;
+                padding: 0.75rem 0;
+            }
+
+            /* class toggled via JavaScript to show the menu */
+            .nav-links.active {
+                display: flex;
+            }
+        }
+ 
     </style>
 </head>
 <body>
 
     <header>
-        <nav>
+       <nav>
             <a href="index.html" class="logo">The Hotel</a>
+            
+            <!-- Mobile Hamburger Button -->
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                &#9776;
+            </button>
+
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="rooms.html">Suites</a></li>
@@ -116,5 +171,13 @@
     </main>
 
     <footer><p>© 2026 The Luminary Hotel. All Rights Reserved.</p></footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
