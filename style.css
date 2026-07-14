@@ -44,6 +44,7 @@ nav {
     align-items: center; 
     max-width: 1200px; 
     margin: 0 auto; 
+    position: relative; /* REQUIRED: Anchor point for the absolute mobile dropdown */
 }
 
 .logo { 
@@ -54,6 +55,17 @@ nav {
     text-decoration: none; 
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+/* REQUIRED: Added menu-toggle rules for the interactive button */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--primary);
+    transition: var(--transition);
 }
 
 .nav-links { 
@@ -417,6 +429,43 @@ footer {
     .page-header h1 { font-size: 2.8rem; }
     .featured-img { height: 350px; }
     .container { padding: 5rem 1.5rem; }
+
+    /* REQUIRED: Responsive Dropdown Navigation Rules */
+    .menu-toggle {
+        display: block; /* Reveal hamburger button */
+    }
+
+    .nav-links {
+        display: none; /* Hide standard linear menu links */
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%; 
+        left: -2rem; /* Offsets container padding safely to span screen width */
+        width: calc(100% + 4rem); 
+        background-color: rgba(253, 250, 246, 0.98); 
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(188, 108, 37, 0.08);
+        padding: 1.5rem 0;
+        box-shadow: 0 15px 30px rgba(40, 54, 24, 0.05);
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* Interactive state triggered via your JavaScript click script */
+    .nav-links.active {
+        display: flex;
+    }
 }
 /* ==========================================================================
    ENHANCED CINEMATIC GALLERY STYLES & ANIMATIONS
